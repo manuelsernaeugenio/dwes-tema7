@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CortoController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', IndexController::class)->name('index');
+
+Route::resource('corto', CortoController::class)->only(['index']);
